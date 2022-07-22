@@ -22,35 +22,33 @@ export default function Home({ allPostsData }) {
       <div class="home">
 
         <h1 class="title">
-          Welcome to {siteTitle}
+          欢迎来到 {siteTitle}
         </h1>
 
         <p class="description">
-          This site is still under developer. please check regularly
+          玩的开心哦！
         </p>
 
-        <div class="text-center py-3">
+        <div class="text-center py-4">
           
-          <div class="stats bg-primary text-primary-content">
-            <Online server="sg" />
-            <Online server="de" />
+          <div class="stats bg-primary text-primary-content servers">
+            <Online server="天理一服" />
+            <Online server="天理二服" />
+            <Online server="天理魂服" />
+            <Online server="天理2.8服" />
           </div>
 
         </div>
+        
+        <p class="text-center">
+          服务器地址是输入到代理里面的，请勿将其直接输入浏览器，不会请看下方教程<br/>
+          电脑的端口留空或者输443就好 <br/>
+        </p>
 
-        <div class="grid">
+        <p class="description">
+        <a href="https://casks.me" target="_blank" rel="sponsored">网站|教程</a>
+        </p>
 
-          {allPostsData.map(({ id, date, title, short }) => (
-
-            <a href={`/posts/${id}`} class="card">
-              <h3>{title} &rarr;</h3>
-              <p>{short}</p>
-              {date}
-            </a>
-
-          ))}
-
-        </div>
       </div>
     </Layout>
   )

@@ -1,21 +1,26 @@
-import useSWR from 'swr';
+import useSWR from 'swr'
+import styles from './layout.module.css'
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function App({ server = "sg" }) {
 
+  var host;
+  var seraddress;
+  if(server == "近离的2.8服"){
+    host = "zjjcyw.club:88"
+    seraddress = "电脑使用登陆器 手机：https://zjjcyw.club:88"
+  } else if(server == "近离的3.0beta"){
+    host = "zjjcyw.club:66"
+    seraddress = "请使用电脑专用登陆器登录"
+
   const { data, error } = useSWR(
-    `https://${server}.game.yuuki.me/status/server`,
+    `https://${host}/status/server`,
     fetcher
   );
 
-  //console.log("tes", data);
-  if(server == "近离2.8服"){
-    server = "zjjcyw.club:88"
-  }
-  if(server == "3.0beta"){
-    server = "zjjcyw.club:66"
-  }
+  console.log("tes", data);
+
   var online = "?";
   if(data){
     if(data.status){
